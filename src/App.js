@@ -2,18 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const nayoks = [
+    {name: 'Sakib Khan', Prof: 'Actor', nationality: 'Bangladeshi'},
+    {name: 'Sakib Al Hasan', Prof: 'Cricketer', nationality: 'Bangladeshi'},
+    {name: 'Will Smith', Prof: 'Actor', nationality: 'American'},
+    {name: 'Shah Rukh Khan', Prof: 'Actor', nationality: 'Indian'},
+    {name: 'Bruse Lee', Prof: 'Actor', nationality: 'Japanese'}
+  ]
   return (
     <div className="App">
-        <Person name='Sakib Al Hasan' profession='Cricketer'></Person>
-        <Person name='Nadir on The Go' profession='Vloer'></Person>
-        <Person name='Jhankar Mahbub' profession='Programmer'></Person>
-        <Person name='Ahmadullah' profession='Maolana'></Person>
-        <Person name='Masum Hossain' profession='Web Developer'></Person>
-
-        <Another name='Najmus Sakib' profession='Programmer' mobile='01712345678'></Another>
-        <Another name='Masum Hossain' profession='Web Developer' mobile='01798223871'></Another>
-        <Another name='Shanto Hossain' profession='Web Developer' mobile='01712345678'></Another>
-        <Another name='Iqbal Hossain' profession='Web Developerr' mobile='01712345678'></Another>
+        {
+          nayoks.map(nayok => <Person name={nayok.name} prof={nayok.Prof} nationality={nayok.nationality}></Person>)
+        }
     </div>
   );
 }
@@ -22,18 +22,9 @@ const Person = (props) =>{
   return(
     <div className='person'>
     <h1>{props.name}</h1>
-    <p>{props.profession}</p>
+    <p>{props.prof}</p>
+    <p>{props.nationality}</p>
     </div>
-  )
-}
-
-const Another = (props)=>{
-  return(
-    <div>
-  <h1>Name: {props.name}</h1>
-  <p>Profession: {props.profession}</p>
-  <h4>Mobile: {props.mobile}</h4>
-  </div>
   )
 }
 
